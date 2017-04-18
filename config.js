@@ -20,6 +20,9 @@ MIICXAIBAAKBgQChWouYGhW8wXl+qWzkq7QtCK6MvodD+9jiLX1JwBWrE7pwlnPuAVNVo7CQmgksxIcF
 
     /* 查询间隔 */
     'queryDuration': 3000,
+
+    /* 系统商编号 */
+    'pid': 2088521499170282,
 }
 
 export const weixin_config = {
