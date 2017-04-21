@@ -5,6 +5,6 @@ const router = koaRouter({
     prefix: '/ali'
 })
 
-router.get('/tradePay', alipay.tradePay)
+router.get('/appAuthCode', alipay.tradePay)
 
 module.exports = router
