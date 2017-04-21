@@ -1,10 +1,10 @@
 import koaRouter from 'koa-router'
-import alipay from '../controllers/alipay'
+import aliAuth from '../controllers/aliAuth'
 
 const router = koaRouter({
     prefix: '/ali'
 })
 
-router.get('/appAuthCode', alipay.tradePay)
+router.get('/appAuthCode', aliAuth.authRoute)
 
 module.exports = router
