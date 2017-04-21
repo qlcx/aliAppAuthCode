@@ -2,7 +2,7 @@ import * as config from '../config'
 import aop from '../lib/aop'
 import Promise from 'bluebird'
 
-//条码支付
+// 授权请求
 const authRoute = async(ctx, next) => {
     //获得请求数据
     let requestData = ctx.request.query
@@ -22,7 +22,7 @@ const authRoute = async(ctx, next) => {
     aop.execute('alipay.open.auth.token.app', config.merchantPrivateKey, reqParam).then(res => {
 
     }).catch(e => {
-        
+
     })
 } 
 
