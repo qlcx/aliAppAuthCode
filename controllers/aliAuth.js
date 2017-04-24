@@ -1,5 +1,6 @@
 import * as config from '../config'
 import aop from '../lib/aop'
+import dbop from '../db/dboperator'
 import Promise from 'bluebird'
 
 // 授权请求
@@ -19,10 +20,20 @@ const authRoute = async(ctx, next) => {
         grant_type: 'authorization_code',
         code: requestData.app_auth_code,
     }
-    aop.execute('alipay.open.auth.token.app', config.merchantPrivateKey, reqParam).then(res => {
+    aop.execute('alipay.open.auth.token.app', config.ali.merchantPrivateKey, reqParam).then(data => {
+        let res = data.alipay_open_auth_token_app_response
+        if (res.code == '10000') {
+            // 请求成功
+            let queryCommand = `insert into ${config.ali.tableName} (appauthtoken, userid, authappid, expiresin, reexpiresin, apprefreshtoken) values("${res.app_auth_token}", "${res.user_id}", "${res.auth_app_id}", "${res.expires_in}", "${res.re_expires_in}", "${res.app_refresh_token}")`
 
+            console.log(queryCommand)
+            // 存储数据
+            dbop.storeData(queryCommand)
+        } else {
+            // 请求失败
+        }
     }).catch(e => {
-
+        console.log(e)
     })
 } 
 

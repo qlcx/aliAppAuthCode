@@ -1,12 +1,6 @@
 import fs from 'fs'
 
-export const alipay_config = {
-    /* 应用ID */
-    'appid': 2016073100135366,
-
-    /* 通知URL */
-    'notifyUrl': '',
-
+export const ali = {
     /* 应用RSA私钥 请勿忘记 ----BEGIN RSA PRIVATE KEY----- 与 -----END RSA PRIVATE KEY-----  */
     'merchantPrivateKey': `-----BEGIN PRIVATE KEY-----
 MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKFai5gaFbzBeX6p
@@ -25,15 +19,6 @@ EVU2KbnFDoKco6AMyNMjl2NhfzpPHW2x7buFGg3DB+3VtBe3o9P4n6EYyeMa/YeO
 a2/50EQ0nG03/w==
 -----END PRIVATE KEY-----`,
 
-    /* 支付宝支付网关 如果为空会使用沙盒网关 */
-	'gatewayUrl': '',
-
-    /* 最大查询重试次数 */
-    'maxQueryRetry': 10,
-
-    /* 查询间隔 */
-    'queryDuration': 3000,
-
-    /* 系统商编号 */
-    'pid': 2088521499170282,
+    /* 表名 */
+    'tableName': 'TBL_ALI_AUTH_TOKEN'
 }
