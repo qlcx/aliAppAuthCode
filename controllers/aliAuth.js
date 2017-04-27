@@ -24,11 +24,13 @@ const authRoute = async(ctx, next) => {
         let res = data.alipay_open_auth_token_app_response
         if (res.code == '10000') {
             // 请求成功
-            let queryCommand = `insert into ${config.ali.tableName} (appauthtoken, userid, authappid, expiresin, reexpiresin, apprefreshtoken) values("${res.app_auth_token}", "${res.user_id}", "${res.auth_app_id}", "${res.expires_in}", "${res.re_expires_in}", "${res.app_refresh_token}")`
-
-            console.log(queryCommand)
+            let queryCommand = `insert into ${config.ali.tableName} (appauthtoken, Storecodeorigin, authappid, expiresin, reexpiresin, apprefreshtoken) values("${res.app_auth_token}", "${res.user_id}", "${res.auth_app_id}", "${res.expires_in}", "${res.re_expires_in}", "${res.app_refresh_token}")`
             // 存储数据
             dbop.storeData(queryCommand)
+
+            // 更新商户签约状态
+            let updateCommand = `update ${config.ali.storeTableName} set Sign=${1} where Storecodeorigin="${res.user_id}"`
+            dbop.storeData(updateCommand)
         } else {
             // 请求失败
         }

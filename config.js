@@ -19,6 +19,8 @@ EVU2KbnFDoKco6AMyNMjl2NhfzpPHW2x7buFGg3DB+3VtBe3o9P4n6EYyeMa/YeO
 a2/50EQ0nG03/w==
 -----END PRIVATE KEY-----`,
 
-    /* 表名 */
-    'tableName': 'TBL_ALI_AUTH_TOKEN'
+    /* 支付宝授权表名 */
+    'tableName': 'TBL_ALI_AUTH_TOKEN',
+    /* 商户信息表 */
+    'storeTableName': 'TBL_STORECODE'
 }
