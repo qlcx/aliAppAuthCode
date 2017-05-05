@@ -20,7 +20,7 @@ a2/50EQ0nG03/w==
 -----END PRIVATE KEY-----`,
 
     /* 支付宝授权表名 */
-    'tableName': 'TBL_ALI_AUTH_TOKEN',
+    'tableName': 'TBL_ALI_TOKEN',
     /* 商户信息表 */
     'storeTableName': 'TBL_STORECODE'
 }
