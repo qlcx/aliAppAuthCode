@@ -5,10 +5,10 @@ const NAME_DATABASE = 'DB_NETPAY'
 // 创建连接
 exports.conDB = function() {
     var client = mysql.createConnection({ 
-        host: '192.168.1.151',
-        port: '3306', 
+        host: '127.0.0.1',
+        port: '8901', 
         user: 'njyt',  
-        password: 'njyt',
+        password: 'nc229njytDev1',
         database: NAME_DATABASE,  
     })
 
